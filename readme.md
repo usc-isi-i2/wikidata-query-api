@@ -2,12 +2,23 @@
 
 A simplified version of https://www.wikidata.org/w/api.php.
 
+## Run service
+
+```
+pip install -r requirements.txt
+python service.py
+```
+
+## Instructions
+
 Supported parameters:
 
 ```
 action=query
 list=search
+format=json
 uselang=en,ru,... (defaults to en)
+srsearch=query keyword
 srlimit=10 (defaults to 10)
 ```
 
