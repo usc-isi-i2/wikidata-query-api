@@ -195,7 +195,7 @@ def action_query(kwargs):
 
         return make_response(json.dumps(ret), 200)
     except Exception as e:
-        raise e
+        # raise e
         return make_response(json.dumps({'error':'Invalid request', 'message': str(e)}), 500)
 
 if __name__ == '__main__':
