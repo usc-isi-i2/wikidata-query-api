@@ -1,0 +1,6 @@
+config = {
+	'host': 'localhost',
+	'port': 12000,
+	'es_url': 'http://localhost:9200',
+	'es_index': 'myindex'
+}
