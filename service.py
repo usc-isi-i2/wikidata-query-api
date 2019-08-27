@@ -186,12 +186,12 @@ def action_query(kwargs):
         }
         for r in resp['hits']['hits']:
             r = r['_source']
-            ret['query']['search'].append({
-                'title': r['title'],
-                'snippet': r['descriptions'].get(uselang) \
+            ret_tmp = {'title': r['title']}
+            if 'descriptions' in r and len(r['descriptions']) > 0:
+                ret_tmp['snippet'] = r['descriptions'].get(uselang) \
                     or r['descriptions'].get('en') \
                     or r['descriptions'].popitem()
-            })
+            ret['query']['search'].append(ret_tmp)
 
         return make_response(json.dumps(ret), 200)
     except Exception as e:
