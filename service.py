@@ -171,7 +171,7 @@ def action_query(kwargs):
     "full_text",
     "full_text_querystring"
   ],
-  "size": 100
+  "size": ''' + srlimit + ''' 
 }'''
         resp = requests.post('{}/{}/_search'.format(config['es_url'], config['es_index']), data=es_query)
         if resp.status_code // 100 != 2:
