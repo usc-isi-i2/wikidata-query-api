@@ -29,7 +29,7 @@ def action_query(kwargs):
         return make_response(json.dumps({'error':'Only "search" is supported'}), 500)
 
     srsearch = kwargs.get('srsearch', '')
-    srlimit = kwargs.get('srlimit', 10)
+    srlimit = kwargs.get('srlimit', '10')
     uselang = kwargs.get('uselang', 'en')
 
     if len(srsearch.strip()) == 0:
