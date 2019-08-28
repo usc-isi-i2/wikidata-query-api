@@ -173,7 +173,7 @@ def action_query(kwargs):
   ],
   "size": ''' + srlimit + ''' 
 }'''
-        resp = requests.post('{}/{}/_search'.format(config['es_url'], config['es_index']), data=es_query)
+        resp = requests.post('{}/{}/_search'.format(config['es_url'], config['es_index']), data=es_query.encode('utf-8'))
         if resp.status_code // 100 != 2:
             return make_response(json.dumps({'error': 'ElasticSearch error', message: str(resp.content)}), 500)
         resp = json.loads(resp.content)
